@@ -1,7 +1,19 @@
 import React, { useState } from "react";
 
 const Calculator: React.FC = () => {
-  const [dogAge, setDogAge] = useState("");
+  // State variables for dog age and calculated human age
+  const [dogAge, setDogAge] = useState<number | string>("");
+  const [humanAge, setHumanAge] = useState<number | null>(null);
+
+  // Handler for changes in the dog age input field
+  const handleDogAgeChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const newDogAge = event.target.value;
+    if (newDogAge === "") {
+      setDogAge("");
+    } else {
+      setDogAge(Number(newDogAge));
+    }
+  };
 
   return (
     <>
