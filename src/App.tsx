@@ -1,12 +1,17 @@
-import React from "react";
+import "./App.css";
 import Calculator from "./Calculator";
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="App">
-      <Calculator />
-    </div>
+    <>
+      <header>
+        <h1>Dog Age to Human Age</h1>
+      </header>
+      <main>
+        <Calculator />
+      </main>
+    </>
   );
-};
+}
 
-export default App
+export default App;
