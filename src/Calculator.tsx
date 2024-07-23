@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Calculator.css";
 
 // Function to calculate human age equivalent from dog age
 const calculateHumanAge = (dogAge: number): number => {
