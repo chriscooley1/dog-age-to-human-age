@@ -1,57 +1,57 @@
 import React, { useState } from "react";
 import "./Calculator.css";
 
-// Function to calculate human age equivalent from dog age
-const calculateHumanAge = (dogAge: number): number => {
-  return Math.round(16 * Math.log(dogAge) + 31);
+// Function to calculate dog age equivalent from human age
+const calculateDogAge = (humanAge: number): number => {
+  return Math.round(16 * Math.log(humanAge) + 31);
 };
 
 const Calculator: React.FC = () => {
-  // State variables for dog age and calculated human age
-  const [dogAge, setDogAge] = useState<number | string>("");
-  const [humanAge, setHumanAge] = useState<number | null>(null);
+  // State variables for human age and calculated human age
+  const [humanAge, sethumanAge] = useState<number | string>("");
+  const [dogAGE, setdogAGE] = useState<number | null>(null);
 
-  // Handler for changes in the dog age input field
-  const handleDogAgeChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const newDogAge = event.target.value;
-    if (newDogAge === "") {
-      setDogAge("");
+  // Handler for changes in the human age input field
+  const handlehumanAgeChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const newhumanAge = event.target.value;
+    if (newhumanAge === "") {
+      sethumanAge("");
     } else {
-      setDogAge(Number(newDogAge));
+      sethumanAge(Number(newhumanAge));
     }
   };
 
-  // Function to calculate human age based on dog age
+  // Function to calculate dog age based on human age
   const calculateAge = (): void => {
-    // Check if dog age is a valid number
-    if (typeof dogAge === "number" && !isNaN(dogAge)) {
-      const age = calculateHumanAge(dogAge); // Calculate human age
-      setHumanAge(age); // Update human age state
+    // Check if human age is a valid number
+    if (typeof humanAge === "number" && !isNaN(humanAge)) {
+      const age = calculateDogAge(humanAge); // Calculate dog age
+      setdogAGE(age); // Update dog age state
     } else {
-      setHumanAge(null); // Set human age state to null if dog age is invalid
+      setdogAGE(null); // Set dog age state to null if human age is invalid
     }
   };
 
   return (
     <div className="calculator">
       <h2>How Old am I?</h2>
-      {/* Form for entering dog age and displaying calculated human age */}
+      {/* Form for entering human age and displaying calculated dog age */}
       <form onSubmit={(e) => {e.preventDefault(); calculateAge();}}>
         <div className="input-group">
-          <label htmlFor="dogAge">Age in dog years</label>
+          <label htmlFor="humanAge">Age in human years</label>
           <input
             type="number"
-            id="dogAge"
-            value={dogAge !== undefined ? dogAge : ""}
+            id="humanAge"
+            value={humanAge !== undefined ? humanAge : ""}
             placeholder="Enter dog age in years"
-            onChange={handleDogAgeChange}
+            onChange={handlehumanAgeChange}
           />
         </div>
         <button type="submit">Submit</button>
       </form>
-      {/* Display the calculated human age if available */}
-      {humanAge !== null && (
-        <p>But in human years I am {humanAge} years old!</p>
+      {/* Display the calculated dog age if available */}
+      {dogAGE !== null && (
+        <p>But in dog years I am {dogAGE} years old!</p>
       )}
     </div>
   );

@@ -4,9 +4,9 @@ This project is a simple web application that calculates a dog's age in human ye
 
 ## Features
 
-- **Calculate Human Age**: Converts human age to dog age using the provided formula.
-- **Text Input**: Takes the dog's age via a text box.
-- **Display Result**: Shows the human age equivalent on the page.
+- **Calculate Dog Age**: Converts dog age to human age using the provided formula.
+- **Text Input**: Takes the human's age via a text box.
+- **Display Result**: Shows the dog age equivalent on the page.
 
 ## Setup Instructions
 
@@ -14,3 +14,4 @@ This project is a simple web application that calculates a dog's age in human ye
 
    ```bash
    npm install
+   npm run dev
